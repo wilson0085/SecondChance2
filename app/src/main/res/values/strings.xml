@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SecondChance2</string>
+    <string name="title_explore">Explore</string>
+    <string name="title_swipe">Swipe</string>
+    <string name="title_post">Post</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_you">You</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
