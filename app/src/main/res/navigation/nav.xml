@@ -27,11 +27,7 @@
         android:id="@+id/postFragment"
         android:name="com.example.secondchance2.PostFragment"
         android:label="fragment_post"
-        tools:layout="@layout/fragment_post" >
-        <action
-            android:id="@+id/action_postFragment_to_listingFragment"
-            app:destination="@id/listingFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_post" />
     <fragment
         android:id="@+id/youFragment"
         android:name="com.example.secondchance2.YouFragment"
@@ -58,11 +54,6 @@
         android:name="com.example.secondchance2.IndividualChatFragment"
         android:label="fragment_individual_chat"
         tools:layout="@layout/fragment_individual_chat" />
-    <fragment
-        android:id="@+id/listingFragment"
-        android:name="com.example.secondchance2.ListingFragment"
-        android:label="fragment_listing"
-        tools:layout="@layout/fragment_listing" />
     <fragment
         android:id="@+id/matchedListFragment"
         android:name="com.example.secondchance2.MatchedListFragment"
