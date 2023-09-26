@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainGreen">#4CD964</color>
     <color name="grey">#E7E7E7</color>
+    <color name="email_blue">#003549</color>
+    <color name="background_grey">#F8F9FA</color>
 </resources>
