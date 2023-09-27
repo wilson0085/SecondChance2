@@ -122,71 +122,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu_layout"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="1dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_layout">
 
         <TextView
-            android:id="@+id/menu_list"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Listings"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/menu_reviews"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Reviews"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintLeft_toRightOf="@id/menu_list"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/menu_about"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="About"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            app:layout_constraintLeft_toRightOf="@id/menu_reviews"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/underline1"
-            android:layout_width="135sp"
-            android:layout_height="2dp"
-            android:background="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menu_list" />
-
-        <TextView
-            android:id="@+id/underline2"
-            android:layout_width="135sp"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@color/black"
-            app:layout_constraintLeft_toRightOf="@id/underline1"
-            app:layout_constraintTop_toBottomOf="@id/menu_list" />
-
-        <TextView
-            android:id="@+id/underline3"
-            android:layout_width="150sp"
-            android:layout_height="1dp"
-            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/underline2"
-            app:layout_constraintTop_toBottomOf="@id/menu_list" />
-
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
