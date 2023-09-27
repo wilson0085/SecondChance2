@@ -218,6 +218,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_james"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_margin="10dp"
@@ -226,7 +227,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
-                    app:cardBackgroundColor="#9C27B0">
+                    app:cardBackgroundColor="#9C27B0"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -269,7 +271,7 @@
                                 android:id="@+id/textView41"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="I'm not available during .."
+                                android:text="I am free today."
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
                         </LinearLayout>
 
