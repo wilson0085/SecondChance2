@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.room.ColumnInfo
 import com.example.secondchance2.Database.AppDatabase
+import com.example.secondchance2.Database.ItemListing
 import com.example.secondchance2.Database.User
 import com.example.secondchance2.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         appDb = AppDatabase.getDatabase(this)
         Toast.makeText(this, "Database Created", Toast.LENGTH_LONG).show()
         insertDummyData()
+        insertDummyDataItemListing()
         // Toast a message to indicate database successfully created
 
         replaceFragment(ExploreFragment())
@@ -143,6 +145,267 @@ class MainActivity : AppCompatActivity() {
         }
 
         Toast.makeText(this, "Records Created", Toast.LENGTH_LONG).show()
+    }
+
+    fun insertDummyDataItemListing(){
+        // Item 1
+        var itemID = "1000"
+        var itemName = "Acer Aspire 5 Laptop"
+        var itemDescription = "The Acer Aspire 5 is an affordable and lightweight laptop, offering a variety of processor options and a Full HD display for everyday computing tasks."
+        var pricingType = "Free"
+        var price = 0.00F
+        var drawable = resources.getDrawable(R.drawable.acer_fotor, null)
+        var bitmap = drawableToBitmap(drawable)
+        var itemPhoto = bitmap
+        var userID = "1000"
+
+        var item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 2
+        itemID = "1001"
+        itemName = "Camping Storage Box"
+        itemDescription = "A camping storage box is an essential outdoor accessory that provides a convenient and organized way to store camping gear, equipment, and supplies. These boxes are typically designed to be rugged, waterproof, and easy to transport, making them ideal for keeping your camping essentials secure and easily accessible during outdoor adventures."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.camping_storage_box_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1000"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 3
+        itemID = "1002"
+        itemName = "X Brand Desk Lamp"
+        itemDescription = "X brand desk lamp is a small, portable lighting fixture typically designed for use on a desk or workspace. It provides focused illumination for tasks such as reading, writing, or working on a computer. "
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.desk_lamp_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1000"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 4
+        itemID = "1003"
+        itemName = "Apple iPad Air 5"
+        itemDescription = "The iPad Air 5 featured a sleek design with a 10.9-inch Liquid Retina display, powered by the M1 chip for high-performance computing. It supported the Apple Pencil and Magic Keyboard, making it a versatile and powerful tablet for various tasks."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.ipad_air_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1000"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 5
+        itemID = "1004"
+        itemName = "JBL True Wireless Earbuds"
+        itemDescription = "JBL true wireless earbuds are compact, cord-free audio devices designed for a wireless and immersive listening experience. They typically offer high-quality sound, ergonomic design, and features like touch controls, noise cancellation, and long battery life for music enthusiasts and on-the-go users."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.jbl_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1001"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 6
+        itemID = "1005"
+        itemName = "MSI RGB Keyboard"
+        itemDescription = "An MSI keyboard with RGB lighting offers customizable, vibrant backlighting to enhance the gaming experience. It allows users to personalize lighting effects and colors for a visually stunning and immersive gameplay atmosphere."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.keyboard_msi_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1001"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 7
+        itemID = "1006"
+        itemName = "Apple MacBook Air"
+        itemDescription = "The M1 MacBook Air is a lightweight laptop powered by Apple's M1 chip, delivering exceptional performance and energy efficiency. It features a fanless design and a Retina display, making it a powerful and silent option for everyday computing tasks."
+        pricingType = "Paid"
+        price = 3000.00F
+        drawable = resources.getDrawable(R.drawable.macbook_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1001"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 8
+        itemID = "1007"
+        itemName = "Marshall Portable Speaker"
+        itemDescription = "Marshall portable speakers are renowned for their iconic design and robust sound quality, providing a distinctive blend of style and powerful audio for music enthusiasts. They often feature Bluetooth connectivity and a portable form factor, making them ideal for on-the-go music playback."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.marshall_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1001"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 9
+        itemID = "1008"
+        itemName = "Midea Robot Vacuum Cleaner"
+        itemDescription = "The Midea robot vacuum cleaner is a smart and automated cleaning device equipped with intelligent navigation and cleaning modes, designed to efficiently clean floors and carpets while requiring minimal manual intervention. It often includes features like app control and voice assistant compatibility for added convenience."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.midea_robot_vacuum_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1002"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 10
+        itemID = "1009"
+        itemName = "Oneplus 11 5G"
+        itemDescription = "The OnePlus 11 5G flagship combines power with effortless elegance. Driven by the most extreme hardware in OnePlus history, dial every possibility up to 11. The OnePlus 11 5G is the Shape of Power."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.oneplus_11_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1002"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 11
+        itemID = "1010"
+        itemName = "Artistic Paint"
+        itemDescription = "An artistic painting is a visual masterpiece crafted with skill and creativity, using various techniques and colors to convey emotions, tell stories, or capture the essence of a subject, offering viewers a unique and subjective experience."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.paint_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1002"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 12
+        itemID = "1011"
+        itemName = "Philips 4K Smart TV"
+        itemDescription = "A Philips 4K TV delivers stunningly sharp and vibrant 4K Ultra HD resolution, providing immersive visuals with rich colors and clarity. It often features smart functionality for streaming content and a sleek design that enhances any living space."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.philips_tv_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1002"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 13
+        itemID = "1012"
+        itemName = "Samsung Galaxy S23 Ultra 5G"
+        itemDescription = "The Samsung S23 Ultra is a big, feature-packed phone with a steep \$1200 price tag to match. It offers an excellent 6.8-inch screen."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.s23_ultra_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1003"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 14
+        itemID = "1013"
+        itemName = "Thermos Food Container"
+        itemDescription = "A thermos food container is a portable, insulated vessel designed to keep food hot or cold for extended periods. It's ideal for preserving the temperature and freshness of meals, making it convenient for picnics, outdoor adventures, or lunch on the go."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.thermos_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1003"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 15
+        itemID = "1014"
+        itemName = "Brand X Trolley"
+        itemDescription = "A goods trolley is a wheeled, transportable cart designed for efficiently moving and transporting items or cargo. It often features a sturdy frame and handles, making it practical for tasks like grocery shopping or warehouse logistics."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.trolley_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1003"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        // Item 16
+        itemID = "1015"
+        itemName = "Under Armor Running Shoes"
+        itemDescription = "Under Armour running shoes are performance-focused footwear known for their comfort and support, designed to enhance a runner's speed and endurance with innovative technology and stylish design."
+        pricingType = "Free"
+        price = 0.00F
+        drawable = resources.getDrawable(R.drawable.under_armor_fotor, null)
+        bitmap = drawableToBitmap(drawable)
+        itemPhoto = bitmap
+        userID = "1003"
+
+        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        GlobalScope.launch(Dispatchers.IO){
+            appDb.itemListingDao().insert(item)
+        }
+
+        Toast.makeText(this, "Item Listing Records Created", Toast.LENGTH_LONG).show()
+
     }
 
 }
