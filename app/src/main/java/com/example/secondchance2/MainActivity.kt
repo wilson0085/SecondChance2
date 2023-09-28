@@ -9,13 +9,14 @@ import android.os.Bundle
 import android.view.SurfaceControl.Transaction
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.room.ColumnInfo
 import com.example.secondchance2.Database.AppDatabase
 import com.example.secondchance2.Database.ItemListing
 import com.example.secondchance2.Database.User
 import com.example.secondchance2.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
+
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -92,7 +93,7 @@ class MainActivity : AppCompatActivity() {
         var profilePhoto: Bitmap = bitmap
 
         var thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
-        GlobalScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             appDb.userDao().insert(thisUser)
         }
 
@@ -108,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         profilePhoto = bitmap
 
         thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
-        GlobalScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             appDb.userDao().insert(thisUser)
         }
 
@@ -124,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         profilePhoto = bitmap
 
         thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
-        GlobalScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             appDb.userDao().insert(thisUser)
         }
 
@@ -140,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         profilePhoto = bitmap
 
         thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
-        GlobalScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             appDb.userDao().insert(thisUser)
         }
 
@@ -160,7 +161,7 @@ class MainActivity : AppCompatActivity() {
         var userID = "1000"
 
         var item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -176,7 +177,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1000"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -192,7 +193,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1000"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -208,7 +209,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1000"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -224,7 +225,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1001"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -240,7 +241,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1001"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -256,7 +257,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1001"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -272,7 +273,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1001"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -288,7 +289,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1002"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -304,7 +305,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1002"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -320,7 +321,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1002"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -336,7 +337,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1002"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -352,7 +353,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1003"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -368,7 +369,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1003"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -384,7 +385,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1003"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
@@ -400,7 +401,7 @@ class MainActivity : AppCompatActivity() {
         userID = "1003"
 
         item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
-        GlobalScope.launch(Dispatchers.IO){
+        lifecycleScope.launch(Dispatchers.IO){
             appDb.itemListingDao().insert(item)
         }
 
