@@ -78,20 +78,70 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun insertDummyData(){
-        val userId = "1000"
-        val userName: String = "Jake Lim"
-        val joinedYear: Int = 2021
-        val emailVerification: String = "Y"
-        val address: String = "Puchong, Malaysia"
-        val starRating: Float = 4.5F
-        val drawable = resources.getDrawable(R.drawable.woman_profile_fotor, null) // Replace with your Drawable
-        val bitmap = drawableToBitmap(drawable)
-        val profilePhoto: Bitmap = bitmap
+        // Insert user 1
+        var userId = "1000"
+        var userName: String = "Luna"
+        var joinedYear: Int = 2021
+        var emailVerification: String = "Y"
+        var address: String = "Puchong, Malaysia"
+        var starRating: Float = 4.5F
+        var drawable = resources.getDrawable(R.drawable.woman_profile_fotor, null) // Replace with your Drawable
+        var bitmap = drawableToBitmap(drawable)
+        var profilePhoto: Bitmap = bitmap
 
-        val thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        var thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
         GlobalScope.launch(Dispatchers.IO) {
             appDb.userDao().insert(thisUser)
         }
+
+        // Insert User2
+        userId = "1001"
+        userName = "Tan Hua Hua"
+        joinedYear = 2020
+        emailVerification = "Y"
+        address = "Petaling Jaya, Malaysia"
+        starRating = 5F
+        drawable = resources.getDrawable(R.drawable.blond_female_girl_fotor_2023092616279, null) // Replace with your Drawable
+        bitmap = drawableToBitmap(drawable)
+        profilePhoto = bitmap
+
+        thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        GlobalScope.launch(Dispatchers.IO) {
+            appDb.userDao().insert(thisUser)
+        }
+
+        // Insert User3
+        userId = "1002"
+        userName = "Tan Ah Kau"
+        joinedYear = 2019
+        emailVerification = "Y"
+        address = "Penang, Malaysia"
+        starRating = 5F
+        drawable = resources.getDrawable(R.drawable.man2_profile_fotor, null) // Replace with your Drawable
+        bitmap = drawableToBitmap(drawable)
+        profilePhoto = bitmap
+
+        thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        GlobalScope.launch(Dispatchers.IO) {
+            appDb.userDao().insert(thisUser)
+        }
+
+        // Insert User3
+        userId = "1003"
+        userName = "Abu Bakar"
+        joinedYear = 2018
+        emailVerification = "Y"
+        address = "Setapak, Malaysia"
+        starRating = 5F
+        drawable = resources.getDrawable(R.drawable.man_profile_fotor, null) // Replace with your Drawable
+        bitmap = drawableToBitmap(drawable)
+        profilePhoto = bitmap
+
+        thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        GlobalScope.launch(Dispatchers.IO) {
+            appDb.userDao().insert(thisUser)
+        }
+
         Toast.makeText(this, "Records Created", Toast.LENGTH_LONG).show()
     }
 
