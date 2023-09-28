@@ -11,7 +11,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.room.ColumnInfo
+import androidx.room.PrimaryKey
 import com.example.secondchance2.Database.AppDatabase
+import com.example.secondchance2.Database.ItemLikeList
 import com.example.secondchance2.Database.ItemListing
 import com.example.secondchance2.Database.User
 import com.example.secondchance2.databinding.ActivityMainBinding
@@ -32,7 +34,10 @@ class MainActivity : AppCompatActivity() {
         appDb = AppDatabase.getDatabase(this)
         Toast.makeText(this, "Database Created", Toast.LENGTH_LONG).show()
         insertDummyData()
+
         insertDummyDataItemListing()
+        // insert ItemLikedList
+        insertDummyItemLikeList()
         // Toast a message to indicate database successfully created
 
         replaceFragment(ExploreFragment())
@@ -92,9 +97,9 @@ class MainActivity : AppCompatActivity() {
         var bitmap = drawableToBitmap(drawable)
         var profilePhoto: Bitmap = bitmap
 
-        var thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        var thisUser1 = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
         lifecycleScope.launch(Dispatchers.IO) {
-            appDb.userDao().insert(thisUser)
+            appDb.userDao().insert(thisUser1)
         }
 
         // Insert User2
@@ -108,9 +113,9 @@ class MainActivity : AppCompatActivity() {
         bitmap = drawableToBitmap(drawable)
         profilePhoto = bitmap
 
-        thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        var thisUser2 = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
         lifecycleScope.launch(Dispatchers.IO) {
-            appDb.userDao().insert(thisUser)
+            appDb.userDao().insert(thisUser2)
         }
 
         // Insert User3
@@ -124,12 +129,12 @@ class MainActivity : AppCompatActivity() {
         bitmap = drawableToBitmap(drawable)
         profilePhoto = bitmap
 
-        thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        var thisUser3 = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
         lifecycleScope.launch(Dispatchers.IO) {
-            appDb.userDao().insert(thisUser)
+            appDb.userDao().insert(thisUser3)
         }
 
-        // Insert User3
+        // Insert User4
         userId = "1003"
         userName = "Abu Bakar"
         joinedYear = 2018
@@ -140,9 +145,9 @@ class MainActivity : AppCompatActivity() {
         bitmap = drawableToBitmap(drawable)
         profilePhoto = bitmap
 
-        thisUser = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
+        var thisUser4 = User(userId, userName, joinedYear, emailVerification, address, starRating, profilePhoto)
         lifecycleScope.launch(Dispatchers.IO) {
-            appDb.userDao().insert(thisUser)
+            appDb.userDao().insert(thisUser4)
         }
 
         Toast.makeText(this, "Records Created", Toast.LENGTH_LONG).show()
@@ -160,9 +165,9 @@ class MainActivity : AppCompatActivity() {
         var itemPhoto = bitmap
         var userID = "1000"
 
-        var item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item1 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item1)
         }
 
         // Item 2
@@ -176,9 +181,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1000"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item2 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item2)
         }
 
         // Item 3
@@ -192,9 +197,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1000"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item3 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item3)
         }
 
         // Item 4
@@ -208,9 +213,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1000"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item4 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item4)
         }
 
         // Item 5
@@ -224,9 +229,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1001"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item5 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item5)
         }
 
         // Item 6
@@ -240,9 +245,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1001"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item6 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item6)
         }
 
         // Item 7
@@ -256,9 +261,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1001"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item7 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item7)
         }
 
         // Item 8
@@ -272,9 +277,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1001"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item8 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item8)
         }
 
         // Item 9
@@ -288,9 +293,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1002"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item9 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item9)
         }
 
         // Item 10
@@ -304,9 +309,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1002"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item10 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item10)
         }
 
         // Item 11
@@ -320,9 +325,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1002"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item11 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item11)
         }
 
         // Item 12
@@ -336,9 +341,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1002"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item12 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item12)
         }
 
         // Item 13
@@ -352,9 +357,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1003"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item13 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item13)
         }
 
         // Item 14
@@ -368,9 +373,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1003"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item14 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item14)
         }
 
         // Item 15
@@ -384,9 +389,9 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1003"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item15 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item15)
         }
 
         // Item 16
@@ -400,13 +405,66 @@ class MainActivity : AppCompatActivity() {
         itemPhoto = bitmap
         userID = "1003"
 
-        item = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
+        var item16 = ItemListing(itemID, itemName, itemDescription, pricingType, price, itemPhoto, userID)
         lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemListingDao().insert(item)
+            appDb.itemListingDao().insert(item16)
         }
 
         Toast.makeText(this, "Item Listing Records Created", Toast.LENGTH_LONG).show()
 
     }
+
+    fun insertDummyItemLikeList(){
+        // user 1000 like activity
+        var userID = "1000"
+        var itemId = "1004"
+        var ownerId = "1001"
+        var likedDate = "10-10-2023"
+        var likedTime = "10:20"
+        var thisItemLikeList1 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList1)
+        }
+
+        userID = "1000"
+        itemId = "1005"
+        ownerId = "1001"
+        likedDate = "10-10-2023"
+        likedTime = "10:20"
+        var thisItemLikeList2 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList2)
+        }
+//        data class ItemLikeList(
+//            @ColumnInfo(name = "UserID") val UserID: String,
+//            @ColumnInfo(name = "ItemID") val ItemID: String,
+//            @ColumnInfo(name = "OwnerID") val OwnerID: String,
+//            @ColumnInfo(name = "LikedDate") val LikedDate: String,
+//            @ColumnInfo(name = "LikedTime") val LikedTime: String,
+//        )
+
+        userID = "1000"
+        itemId = "1006"
+        ownerId = "1001"
+        likedDate = "10-10-2023"
+        likedTime = "10:20"
+        var thisItemLikeList3 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList3)
+        }
+
+        // user 1001 like activity
+        userID = "1001"
+        itemId = "1003"
+        ownerId = "1000"
+        likedDate = "10-10-2023"
+        likedTime = "10:20"
+        var thisItemLikeList4 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList4)
+        }
+        Toast.makeText(this, "Like Activity Created", Toast.LENGTH_LONG).show()
+    }
+
 
 }
