@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         val emailVerification: String = "Y"
         val address: String = "Puchong, Malaysia"
         val starRating: Float = 4.5F
-        val drawable = resources.getDrawable(R.drawable.blond_female_girl_fotor_2023092616279, null) // Replace with your Drawable
+        val drawable = resources.getDrawable(R.drawable.woman_profile_fotor, null) // Replace with your Drawable
         val bitmap = drawableToBitmap(drawable)
         val profilePhoto: Bitmap = bitmap
 
