@@ -39,7 +39,7 @@ class YouFragment : Fragment() {
     ): View? {
         _binding = FragmentYouBinding.inflate(inflater, container, false)
         appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
-        Toast.makeText(requireContext(), "Database Exist.", Toast.LENGTH_LONG).show()
+
         getUserDetails()
 
         //Create recycleView

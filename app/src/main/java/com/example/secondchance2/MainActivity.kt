@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         // Create the database
         appDb = AppDatabase.getDatabase(this)
-        Toast.makeText(this, "Database Created", Toast.LENGTH_LONG).show()
+
         insertDummyData()
 
         insertDummyDataItemListing()
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
         joinedYear = 2019
         emailVerification = "Y"
         address = "Penang, Malaysia"
-        starRating = 5F
+        starRating = 3.5F
         drawable = resources.getDrawable(R.drawable.man2_profile_fotor, null) // Replace with your Drawable
         bitmap = drawableToBitmap(drawable)
         profilePhoto = bitmap
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
         joinedYear = 2018
         emailVerification = "Y"
         address = "Setapak, Malaysia"
-        starRating = 5F
+        starRating = 4F
         drawable = resources.getDrawable(R.drawable.man_profile_fotor, null) // Replace with your Drawable
         bitmap = drawableToBitmap(drawable)
         profilePhoto = bitmap
@@ -435,16 +435,10 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO){
             appDb.itemLikeListDao().insert(thisItemLikeList2)
         }
-//        data class ItemLikeList(
-//            @ColumnInfo(name = "UserID") val UserID: String,
-//            @ColumnInfo(name = "ItemID") val ItemID: String,
-//            @ColumnInfo(name = "OwnerID") val OwnerID: String,
-//            @ColumnInfo(name = "LikedDate") val LikedDate: String,
-//            @ColumnInfo(name = "LikedTime") val LikedTime: String,
-//        )
+
 
         userID = "1000"
-        itemId = "1006"
+        itemId = "1007"
         ownerId = "1001"
         likedDate = "2023-10-10"
         likedTime = "10:20"
@@ -462,6 +456,16 @@ class MainActivity : AppCompatActivity() {
         var thisItemLikeList4 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
         lifecycleScope.launch(Dispatchers.IO){
             appDb.itemLikeListDao().insert(thisItemLikeList4)
+        }
+
+        userID = "1001"
+        itemId = "1002"
+        ownerId = "1000"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList5= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList5)
         }
         Toast.makeText(this, "Like Activity Created", Toast.LENGTH_SHORT).show()
     }

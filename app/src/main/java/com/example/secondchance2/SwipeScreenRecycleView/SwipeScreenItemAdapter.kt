@@ -35,7 +35,7 @@ class SwipeScreenItemAdapter (private val itemListingDataset: List<ItemListing>
         val itemName: TextView = view.findViewById(R.id.swipe_item_name)
         val itemPriceType: TextView = view.findViewById(R.id.swipe_item_price_type)
         val itemPrice: TextView = view.findViewById(R.id.swipe_item_price)
-        val itemHorizontalLinearLayout: LinearLayout = view.findViewById(R.id.swipe_horizontal_linear_layout)
+        //val itemHorizontalLinearLayout: LinearLayout = view.findViewById(R.id.swipe_horizontal_linear_layout)
         val itemInfoImage: ImageView = view.findViewById(R.id.swipe_info_image)
         val itemLoveImage: ImageView = view.findViewById(R.id.swipe_love_image)
     }
@@ -78,6 +78,7 @@ class SwipeScreenItemAdapter (private val itemListingDataset: List<ItemListing>
             // Use a coroutine scope to call the insert method
             GlobalScope.launch(Dispatchers.IO) {
                 appDb.itemLikeListDao().insert(thisItemLikeList)
+                var owner = appDb.userDao().getThisUser(thisUserId)
             }
 
         }
@@ -85,13 +86,6 @@ class SwipeScreenItemAdapter (private val itemListingDataset: List<ItemListing>
         // Add a click listener to itemInfoImage
         holder.itemInfoImage.setOnClickListener {
             val context = holder.itemView.context
-
-            // Show a toast message when itemInfoImage is clicked
-            Toast.makeText(
-                context,
-                "You will navigate to detail screen of ${holder.itemName.text.toString()}",
-                Toast.LENGTH_SHORT
-            ).show()
 
             // Replace the current fragment with ItemScreenFragment
             val fragmentManager = (context as AppCompatActivity).supportFragmentManager
