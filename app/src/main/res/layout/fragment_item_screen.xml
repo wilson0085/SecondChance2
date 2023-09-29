@@ -16,30 +16,8 @@
             android:layout_height="1300dp"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imageView22"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="178dp"
-                android:layout_marginTop="48dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.111"
-                app:layout_constraintStart_toEndOf="@+id/textView31"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-                app:srcCompat="@drawable/baseline_keyboard_arrow_right_24" />
-
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="48dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-                app:srcCompat="@drawable/statistic" />
-
-            <EditText
-                android:id="@+id/editTextTextMultiLine"
+            <TextView
+                android:id="@+id/item_screen_item_description"
                 android:layout_width="323dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="44dp"
@@ -57,23 +35,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="55dp"
-                app:layout_constraintStart_toEndOf="@+id/textView28"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout1"
+                android:layout_marginBottom="54dp"
+                app:layout_constraintBottom_toTopOf="@+id/item_screen_item_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_screen_item_price_type"
                 app:srcCompat="@drawable/baseline_discount_24" />
 
             <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
-                app:srcCompat="@drawable/baseline_thumb_up_24" />
-
-            <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/item_screen_item_image"
                 android:layout_width="200dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="16dp"
@@ -94,19 +63,7 @@
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_left_24" />
 
             <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="328dp"
-                android:text="Fashion / Clothes / Everyday"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/mainGreen"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/item_screen_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
@@ -121,20 +78,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="20dp"
-                android:text="7 Likes"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="@+id/imageView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-            <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,7 +89,7 @@
                 android:textSize="17sp"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/item_screen_item_name" />
 
             <TextView
                 android:id="@+id/textView29"
@@ -160,38 +103,27 @@
                 android:textSize="17sp"
                 android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                app:layout_constraintTop_toBottomOf="@+id/item_screen_item_price" />
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/item_screen_item_price_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="52dp"
-                android:text="Other Details"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/imageView19"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
-
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
                 android:layout_marginEnd="56dp"
+                android:layout_marginBottom="54dp"
                 android:text="For sale"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/item_screen_item_description"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="431dp"
+                app:layout_constraintStart_toEndOf="@+id/textView23"
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/item_screen_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="44dp"
@@ -202,78 +134,52 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="316dp"
-                android:layout_marginEnd="28dp"
-                android:background="@drawable/background_green_1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/blackheartbutton" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout2"
-                android:layout_width="130dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_grey_rectangle"
+            <ImageView
+                android:id="@+id/item_screen_owner_image"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:src="@drawable/boyface2"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.131"
-                app:layout_constraintStart_toEndOf="@+id/textView33"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.476">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView3454"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chat"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textColor="@color/white"
-                    android:textSize="34sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/item_screen_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_you"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/item_screen_chat_button"
+                app:layout_constraintStart_toEndOf="@+id/item_screen_owner_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout3"
+                android:id="@+id/item_screen_chat_button"
                 android:layout_width="155dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/rounded_rectangle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.909"
-                app:layout_constraintStart_toEndOf="@+id/textView33"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.526">
 
                 <TextView
-                    android:id="@+id/textView34"
+                    android:id="@+id/item_screen_chat_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Deal"
+                    android:text="@string/title_chat"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="@color/white"
                     android:textSize="34sp"
@@ -284,29 +190,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/textView33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="24dp"
-                android:text="7"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/imageView27"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView27"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_thumb_up_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

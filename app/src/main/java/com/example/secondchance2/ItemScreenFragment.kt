@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.secondchance2.Database.AppDatabase
+import com.example.secondchance2.databinding.FragmentItemScreenBinding
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,14 +22,17 @@ private const val ARG_PARAM2 = "param2"
  */
 class ItemScreenFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var currentItemId: String = "null"
+    private var currentOwnerId: String = "null"
+    private lateinit var appDb : AppDatabase
+    private var _binding: FragmentItemScreenBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            currentItemId = it.getString("itemId").toString()
+            currentOwnerId = it.getString("userId").toString()
         }
     }
 
@@ -33,8 +40,22 @@ class ItemScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_screen, container, false)
+        // Do binding
+        _binding = FragmentItemScreenBinding.inflate(inflater, container, false)
+        // initialize database
+        appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
+        // apply onClickLister to chat button
+        binding.itemScreenChatButton.setOnClickListener {
+            replaceFragment(ChatFragment())
+        }
+
+        // display item details
+        getItemDetails()
+
+        // display owner details
+        getOwnerDetails()
+
+        return binding.root
     }
 
     companion object {
@@ -56,4 +77,51 @@ class ItemScreenFragment : Fragment() {
                 }
             }
     }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentManager = requireActivity().supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
+    fun getItemDetails(){
+        // predefined the user id
+        var thisItemId : String = currentItemId
+        GlobalScope.launch {
+
+            var thisitem = appDb.itemListingDao().getThisItemListing(thisItemId)
+            if (thisitem != null) {
+                binding.itemScreenItemImage.setImageBitmap(thisitem.itemPhoto)
+                binding.itemScreenItemName.text = thisitem.itemName.toString()
+                if(thisitem.pricingType == "Paid") {
+                    binding.itemScreenItemPriceType.text = "For Sale"
+                }else{
+                    binding.itemScreenItemPriceType.text = "Free"
+                }
+                binding.itemScreenItemPrice.text = "RM ${thisitem.price.toString()}"
+                binding.itemScreenItemDescription.text = thisitem.description.toString()
+            }
+
+
+        }
+    }
+
+    fun getOwnerDetails(){
+        // predefined the user id
+        var thisUserId : String = currentOwnerId
+        GlobalScope.launch {
+
+            var thisUser = appDb.userDao().getThisUser(thisUserId)
+            print(thisUser)
+            if (thisUser != null) {
+                binding.itemScreenOwnerName.text = thisUser.userName
+                binding.itemScreenOwnerImage.setImageBitmap(thisUser.profilePhoto)
+            }
+
+        }
+    }
+
+
 }

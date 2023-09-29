@@ -40,11 +40,12 @@ class SwipeFragment : Fragment() {
         }
         // Access Database
         appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
-        Toast.makeText(requireContext(), "Database Exist.", Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), "Welcome To Swap Screen", Toast.LENGTH_LONG).show()
 
         // Create the recycleView
         GlobalScope.launch {
-            val freeListing = returnFreeListing()
+            var currentUserId = "1000"
+            val freeListing = returnFreeListing(currentUserId)
             withContext(Dispatchers.Main) {
                 val recyclerView = binding.recyclerView
                 recyclerView.adapter = SwipeScreenItemAdapter(freeListing)
@@ -64,9 +65,9 @@ class SwipeFragment : Fragment() {
         fragmentTransaction.commit()
     }
 
-    suspend fun returnFreeListing(): List<ItemListing> {
+    suspend fun returnFreeListing(userId: String): List<ItemListing> {
         return withContext(Dispatchers.IO) {
-            appDb.itemListingDao().getAllFreeItemListing()
+            appDb.itemListingDao().getAllFreeItemListing(userId)
         }
     }
 

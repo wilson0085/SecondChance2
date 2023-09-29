@@ -12,8 +12,8 @@ interface ItemListingDao {
     @Query("SELECT * FROM ItemListing WHERE ItemID = :itemId")
     fun getThisItemListing(itemId: String): ItemListing
 
-    @Query("SELECT * FROM ItemListing WHERE PricingType = 'Free'")
-    fun getAllFreeItemListing(): List<ItemListing>
+    @Query("SELECT * FROM ItemListing WHERE PricingType = 'Free' AND UserID != :userId")
+    fun getAllFreeItemListing(userId: String): List<ItemListing>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(itemListing: ItemListing)
