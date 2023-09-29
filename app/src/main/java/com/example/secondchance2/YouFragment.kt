@@ -9,10 +9,13 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.secondchance2.Database.AppDatabase
+import com.example.secondchance2.Database.ItemListing
 import com.example.secondchance2.Database.User
 import com.example.secondchance2.databinding.FragmentYouBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Calendar
 
 /**
@@ -38,6 +41,24 @@ class YouFragment : Fragment() {
         appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
         Toast.makeText(requireContext(), "Database Exist.", Toast.LENGTH_LONG).show()
         getUserDetails()
+
+        //Create recycleView
+        GlobalScope.launch {
+            var currentUserId = "1000"
+            var freeListing = returnFreeListing(currentUserId)
+            withContext(Dispatchers.Main){
+                val recyclerView = binding.recyclerView
+                recyclerView.adapter = YouScreenAdapter(freeListing)
+            }
+            val listingSize = freeListing.size
+
+            // Update Listing size
+            if (listingSize > 1){
+                binding.listingNum.text = listingSize.toString() + " listings"
+            }else{
+                binding.listingNum.text = listingSize.toString() + " listing"
+            }
+        }
 
 
         return binding.root
@@ -65,6 +86,12 @@ class YouFragment : Fragment() {
             binding.locationText.text = thisUser.address
             binding.profilePic.setImageBitmap(thisUser.profilePhoto)
 
+        }
+    }
+
+    suspend fun returnFreeListing(userId: String): List<ItemListing>{
+        return withContext(Dispatchers.IO){
+            appDb.itemListingDao().getAllUserItemListing(userId)
         }
     }
 

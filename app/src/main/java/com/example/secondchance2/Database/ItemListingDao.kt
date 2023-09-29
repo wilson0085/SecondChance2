@@ -20,4 +20,10 @@ interface ItemListingDao {
 
     @Query("SELECT MAX(ItemID) FROM ItemListing")
     fun getLastItemID(): String
+
+    @Query("SELECT * FROM ItemListing WHERE UserID = :userId")
+    fun getAllUserItemListing(userId: String): List<ItemListing>
+
+    @Query("SELECT ItemID, itemName, pricingType, price, itemPhoto, IL.UserID, ProfilePhoto, StarRating FROM ItemListing IL, User U WHERE IL.UserID = U.UserID AND IL.UserID != :userId")
+    fun getAllUserItemListingExceptOne(userId: String): List<UserXItem>
 }
