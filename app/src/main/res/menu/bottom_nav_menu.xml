@@ -7,8 +7,8 @@
         android:title="@string/title_explore" />
     <item
         android:id="@+id/navigation_swipe"
-        android:icon="@drawable/baseline_discount_24"
-        android:title="@string/title_swipe" />
+        android:icon="@drawable/baseline_swap_horiz_24"
+        android:title="@string/title_swap" />
     <item
         android:id="@+id/navigation_post"
         android:icon="@drawable/baseline_add_box_24"

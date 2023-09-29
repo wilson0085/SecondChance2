@@ -40,10 +40,6 @@ class YouFragment : Fragment() {
         getUserDetails()
 
 
-
-
-
-
         return binding.root
     }
 

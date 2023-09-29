@@ -1,20 +1,26 @@
 package com.example.secondchance2
 
+
 import android.os.Bundle
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.secondchance2.databinding.FragmentChatBinding
+import android.widget.Toast
+import com.example.secondchance2.Database.AppDatabase
+import com.example.secondchance2.Database.ItemListing
+import com.example.secondchance2.SwipeScreenRecycleView.SwipeScreenItemAdapter
 import com.example.secondchance2.databinding.FragmentSwipeBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SwipeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SwipeFragment : Fragment() {
+    private lateinit var appDb : AppDatabase
+
     private var _binding: FragmentSwipeBinding? = null
     private val binding get() = _binding!!
 
@@ -32,6 +38,20 @@ class SwipeFragment : Fragment() {
         goToMatchList.setOnClickListener {
             replaceFragment(MatchedListFragment())
         }
+        // Access Database
+        appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
+        Toast.makeText(requireContext(), "Database Exist.", Toast.LENGTH_LONG).show()
+
+        // Create the recycleView
+        GlobalScope.launch {
+            val freeListing = returnFreeListing()
+            withContext(Dispatchers.Main) {
+                val recyclerView = binding.recyclerView
+                recyclerView.adapter = SwipeScreenItemAdapter(freeListing)
+
+            }
+        }
+
 
         return binding.root
     }
@@ -43,5 +63,13 @@ class SwipeFragment : Fragment() {
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }
+
+    suspend fun returnFreeListing(): List<ItemListing> {
+        return withContext(Dispatchers.IO) {
+            appDb.itemListingDao().getAllFreeItemListing()
+        }
+    }
+
+
 
 }
