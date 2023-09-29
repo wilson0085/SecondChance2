@@ -1,5 +1,6 @@
 package com.example.secondchance2.Database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -16,4 +17,7 @@ interface ItemListingDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(itemListing: ItemListing)
+
+    @Query("SELECT MAX(ItemID) FROM ItemListing")
+    fun getLastItemID(): String
 }
