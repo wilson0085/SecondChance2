@@ -53,7 +53,7 @@
                 app:srcCompat="@drawable/everydayteddyshirt" />
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/item_screen_back_button"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -48,6 +48,9 @@ class ItemScreenFragment : Fragment() {
         binding.itemScreenChatButton.setOnClickListener {
             replaceFragment(ChatFragment())
         }
+        binding.itemScreenBackButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
 
         // display item details
         getItemDetails()

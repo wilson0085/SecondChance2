@@ -17,9 +17,7 @@ import com.example.secondchance2.Database.ItemLikeList
 import com.example.secondchance2.Database.ItemListing
 import com.example.secondchance2.Database.User
 import com.example.secondchance2.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers
-
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appDb : AppDatabase
@@ -33,12 +31,34 @@ class MainActivity : AppCompatActivity() {
         // Create the database
         appDb = AppDatabase.getDatabase(this)
 
-        insertDummyData()
+//        insertDummyData()
+//
+//        insertDummyDataItemListing()
+//        // insert ItemLikedList
+//        insertDummyItemLikeList()
+//        // Toast a message to indicate database successfully created
 
-        insertDummyDataItemListing()
-        // insert ItemLikedList
-        insertDummyItemLikeList()
-        // Toast a message to indicate database successfully created
+        //test ai code
+        val scope = CoroutineScope(Dispatchers.Default)
+
+        scope.launch {
+            insertDummyData()
+            insertDummyDataItemListing()
+            insertDummyItemLikeList()
+
+            // Wait for 2 seconds
+            delay(2000L)
+
+            // Code to execute after waiting
+            println("Done waiting for 2 seconds")
+        }
+
+        // Make sure to keep the main thread alive
+        runBlocking {
+            delay(3000L) // Waiting for the coroutine to finish, adjust the time as needed
+        }
+
+        // test ai code end
 
         replaceFragment(ExploreFragment())
 
@@ -50,12 +70,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_chat -> replaceFragment(ChatFragment())
                 R.id.navigation_you -> replaceFragment(YouFragment())
 
-                else -> {
 
-                }
             }
             true
         }
+
     }
 
     private fun replaceFragment(fragment: Fragment){
@@ -84,7 +103,9 @@ class MainActivity : AppCompatActivity() {
 
         return bitmap
     }
+    // ChatGPT code
 
+    // Original Code
     fun insertDummyData(){
         // Insert user 1
         var userId = "1000"
@@ -150,7 +171,7 @@ class MainActivity : AppCompatActivity() {
             appDb.userDao().insert(thisUser4)
         }
 
-        Toast.makeText(this, "Records Created", Toast.LENGTH_SHORT).show()
+       // Toast.makeText(this, "Records Created", Toast.LENGTH_SHORT).show()
     }
 
     fun insertDummyDataItemListing(){
@@ -410,7 +431,7 @@ class MainActivity : AppCompatActivity() {
             appDb.itemListingDao().insert(item16)
         }
 
-        Toast.makeText(this, "Item Listing Records Created", Toast.LENGTH_SHORT).show()
+       // Toast.makeText(this, "Item Listing Records Created", Toast.LENGTH_SHORT).show()
 
     }
 
@@ -467,8 +488,9 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO){
             appDb.itemLikeListDao().insert(thisItemLikeList5)
         }
-        Toast.makeText(this, "Like Activity Created", Toast.LENGTH_SHORT).show()
+      //  Toast.makeText(this, "Like Activity Created", Toast.LENGTH_SHORT).show()
     }
+
 
 
 }
