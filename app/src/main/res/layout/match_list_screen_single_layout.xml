@@ -25,11 +25,11 @@
 
             <ImageView
                 android:id="@+id/match_user_item_image"
-                android:layout_width="150dp"
+                android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"/>
+                android:layout_marginEnd="10dp" />
 
             <ImageView
                 android:id="@+id/match_user_image"
@@ -67,7 +67,7 @@
 
             <ImageView
                 android:id="@+id/match_matched_user_item_image"
-                android:layout_width="150dp"
+                android:layout_width="120dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"

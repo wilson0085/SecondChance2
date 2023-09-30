@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
             insertDummyDataItemListing()
             insertDummyItemLikeList()
 
-            // Wait for 2 seconds
-            delay(2000L)
+            // Wait for 3 seconds
+            delay(3000L)
 
             // Code to execute after waiting
             println("Done waiting for 2 seconds")
@@ -436,51 +436,51 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun insertDummyItemLikeList(){
-        // user 1000 like activity
-        var userID = "1000"
-        var itemId = "1004"
-        var ownerId = "1001"
-        var likedDate = "2023-10-10"
-        var likedTime = "10:20"
-        var thisItemLikeList1 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
-        lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemLikeListDao().insert(thisItemLikeList1)
-        }
-
-        userID = "1000"
-        itemId = "1005"
-        ownerId = "1001"
-        likedDate = "2023-10-10"
-        likedTime = "10:20"
-        var thisItemLikeList2 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
-        lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemLikeListDao().insert(thisItemLikeList2)
-        }
-
-
-        userID = "1000"
-        itemId = "1007"
-        ownerId = "1001"
-        likedDate = "2023-10-10"
-        likedTime = "10:20"
-        var thisItemLikeList3 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
-        lifecycleScope.launch(Dispatchers.IO){
-            appDb.itemLikeListDao().insert(thisItemLikeList3)
-        }
+//        // user 1000 like activity
+//        var userID = "1000"
+//        var itemId = "1004"
+//        var ownerId = "1001"
+//        var likedDate = "2023-10-10"
+//        var likedTime = "10:20"
+//        var thisItemLikeList1 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+//        lifecycleScope.launch(Dispatchers.IO){
+//            appDb.itemLikeListDao().insert(thisItemLikeList1)
+//        }
+//
+//        userID = "1000"
+//        itemId = "1005"
+//        ownerId = "1001"
+//        likedDate = "2023-10-10"
+//        likedTime = "10:20"
+//        var thisItemLikeList2 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+//        lifecycleScope.launch(Dispatchers.IO){
+//            appDb.itemLikeListDao().insert(thisItemLikeList2)
+//        }
+//
+//
+//        userID = "1000"
+//        itemId = "1007"
+//        ownerId = "1001"
+//        likedDate = "2023-10-10"
+//        likedTime = "10:20"
+//        var thisItemLikeList3 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+//        lifecycleScope.launch(Dispatchers.IO){
+//            appDb.itemLikeListDao().insert(thisItemLikeList3)
+//        }
 
         // user 1001 like activity
-        userID = "1001"
-        itemId = "1003"
-        ownerId = "1000"
-        likedDate = "2023-10-10"
-        likedTime = "10:20"
+        var userID = "1001"
+        var itemId = "1000"
+        var ownerId = "1000"
+        var likedDate = "2023-10-10"
+        var likedTime = "10:20"
         var thisItemLikeList4 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
         lifecycleScope.launch(Dispatchers.IO){
             appDb.itemLikeListDao().insert(thisItemLikeList4)
         }
 
         userID = "1001"
-        itemId = "1002"
+        itemId = "1001"
         ownerId = "1000"
         likedDate = "2023-10-10"
         likedTime = "10:20"
@@ -488,6 +488,83 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO){
             appDb.itemLikeListDao().insert(thisItemLikeList5)
         }
+
+        // user 1002 like activity
+        userID = "1002"
+        itemId = "1000"
+        ownerId = "1000"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList6= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList6)
+        }
+
+        userID = "1002"
+        itemId = "1001"
+        ownerId = "1000"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList7 = ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList7)
+        }
+
+        userID = "1002"
+        itemId = "1002"
+        ownerId = "1000"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList8= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList8)
+        }
+
+        // user 1003 like activity
+        userID = "1003"
+        itemId = "1000"
+        ownerId = "1000"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList9= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList9)
+        }
+
+
+        userID = "1003"
+        itemId = "1001"
+        ownerId = "1001"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList10= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList10)
+        }
+
+
+        userID = "1003"
+        itemId = "1002"
+        ownerId = "1001"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList11= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList11)
+        }
+
+
+        userID = "1003"
+        itemId = "1003"
+        ownerId = "1001"
+        likedDate = "2023-10-10"
+        likedTime = "10:20"
+        var thisItemLikeList12= ItemLikeList(userID, itemId, ownerId, likedDate, likedTime)
+        lifecycleScope.launch(Dispatchers.IO){
+            appDb.itemLikeListDao().insert(thisItemLikeList12)
+        }
+
+
       //  Toast.makeText(this, "Like Activity Created", Toast.LENGTH_SHORT).show()
     }
 
