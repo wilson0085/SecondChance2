@@ -17,6 +17,7 @@ import com.example.secondchance2.Database.AppDatabase
 import com.example.secondchance2.Database.ItemListing
 import com.example.secondchance2.databinding.FragmentPostBinding
 import com.example.secondchance2.databinding.FragmentYouBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -66,48 +67,56 @@ class PostFragment : Fragment() {
         }
 
         confirmButton.setOnClickListener {
-            val name = binding.editItemName.text.toString()
-            val description = binding.editItemDescription.text.toString()
-            val pricingFree = binding.pricingTypeFree
-            val pricingPaid = binding.pricingTypePaid
-            var pricingTypeText = ""
-
-
-            val priceText = binding.editItemPrice.text.toString()
-            val price = if (priceText.isEmpty()){
-                0.00F
+            if ((binding.editItemName.text.toString() == "") && (binding.editItemDescription.text.toString() == "")){
+                Toast.makeText(requireContext(), "Please fill out all required fields", Toast.LENGTH_SHORT).show()
             }else{
-                priceText.toFloat()
+                val name = binding.editItemName.text.toString()
+                val description = binding.editItemDescription.text.toString()
+                val pricingFree = binding.pricingTypeFree
+                val pricingPaid = binding.pricingTypePaid
+                var pricingTypeText = ""
+
+
+                val priceText = binding.editItemPrice.text.toString()
+                val price = if (priceText.isEmpty()){
+                    0.00F
+                }else{
+                    priceText.toFloat()
+                }
+
+                if(pricingFree.isChecked){
+                    pricingTypeText = pricingFree.text.toString()
+                }else{
+                    pricingTypeText = pricingPaid.text.toString()
+                }
+
+                // Access Database
+                appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
+                GlobalScope.launch{
+                    val lastItemId = appDb.itemListingDao().getLastItemID()
+                    val itemId = lastItemId?.toInt() ?:0
+                    newItemId = (itemId + 1).toString()
+                }
+
+
+                val defaultBitmap = BitmapFactory.decodeResource(resources, R.drawable.paint_fotor)
+
+
+                val thisItem = ItemListing(newItemId, name, description, pricingTypeText, price, item_image_bitmap ?: defaultBitmap, "1000")
+
+                lifecycleScope.launch(Dispatchers.IO){
+                    appDb.itemListingDao().insert(thisItem)
+                }
+
+                // Toast indicate item posted
+                Toast.makeText(requireContext(), "Item posted", Toast.LENGTH_SHORT).show()
+
+                // Clear Input
+                binding.editItemName.text.clear()
+                binding.editItemDescription.text.clear()
+                binding.galleryPic.visibility = View.GONE
             }
 
-            if(pricingFree.isChecked){
-                pricingTypeText = pricingFree.text.toString()
-            }else{
-                pricingTypeText = pricingPaid.text.toString()
-            }
-
-            // Access Database
-            appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
-            GlobalScope.launch{
-                val lastItemId = appDb.itemListingDao().getLastItemID()
-                val itemId = lastItemId?.toInt() ?:0
-                newItemId = (itemId + 1).toString()
-            }
-
-
-            val defaultBitmap = BitmapFactory.decodeResource(resources, R.drawable.paint_fotor)
-
-            val thisItem = ItemListing(newItemId, name, description, pricingTypeText, price, item_image_bitmap ?: defaultBitmap, "1000")
-            Toast.makeText(requireContext(), "Item Posted", Toast.LENGTH_SHORT).show()
-
-            lifecycleScope.launch(Dispatchers.IO){
-                appDb.itemListingDao().insert(thisItem)
-            }
-
-            // Clear Input
-            binding.editItemName.text.clear()
-            binding.editItemDescription.text.clear()
-            binding.galleryPic.visibility = View.GONE
 
 
         }
