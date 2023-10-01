@@ -6,7 +6,8 @@
     android:layout_margin="10dp"
     android:background="@drawable/round_corner_layout"
     android:elevation="10dp"
-    android:clickable="true">
+    android:clickable="true"
+    android:backgroundTint="@color/gallery_button_background_color">
 
     <ImageView
         android:id="@+id/item_image"

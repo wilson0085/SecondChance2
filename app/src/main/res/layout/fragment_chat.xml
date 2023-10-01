@@ -67,8 +67,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:orientation="horizontal"
                         android:background="@color/white"
-                        android:orientation="horizontal">
+                        android:elevation="10dp">
 
                         <ImageView
                             android:id="@+id/imageView9"
@@ -149,8 +150,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:orientation="horizontal"
                         android:background="@color/white"
-                        android:orientation="horizontal">
+                        android:elevation="10dp"
+                        android:backgroundTint="@color/gallery_button_background_color">
 
                         <ImageView
                             android:id="@+id/imageView14"
@@ -233,8 +236,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
+                        android:elevation="10dp"
+                        android:backgroundTint="@color/gallery_button_background_color"
+                        android:orientation="horizontal"
+                        android:background="@color/white">
 
                         <ImageView
                             android:id="@+id/imageView21"
@@ -315,8 +320,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
+                        android:elevation="10dp"
+                        android:backgroundTint="@color/gallery_button_background_color"
+                        android:orientation="horizontal"
+                        android:background="@color/white">
 
                         <ImageView
                             android:id="@+id/imageView46"
@@ -397,8 +404,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:orientation="horizontal"
                         android:background="@color/white"
-                        android:orientation="horizontal">
+                        android:elevation="10dp"
+                        android:backgroundTint="@color/gallery_button_background_color">
 
                         <ImageView
                             android:id="@+id/imageView51"
