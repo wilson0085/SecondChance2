@@ -45,6 +45,10 @@ class MatchedListFragment : Fragment() {
         // Access Database
         appDb = AppDatabase.getDatabase(requireContext()) // Use requireContext() to get the context
 
+        // implement back button
+        binding.matchedScreenBackButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
 
         // Create the recycleView
         GlobalScope.launch {

@@ -24,6 +24,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Press Love Button to show interest"
+            android:fontFamily="@font/roboto_bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="20sp"
             android:textStyle="bold" />

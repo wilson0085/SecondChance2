@@ -103,7 +103,8 @@ class ItemScreenFragment : Fragment() {
                 }else{
                     binding.itemScreenItemPriceType.text = "Free"
                 }
-                binding.itemScreenItemPrice.text = "RM ${thisitem.price.toString()}"
+
+                binding.itemScreenItemPrice.text = "RM" + String.format("%.2f", thisitem.price)
                 binding.itemScreenItemDescription.text = thisitem.description.toString()
             }
 

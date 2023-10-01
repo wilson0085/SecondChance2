@@ -53,7 +53,7 @@ class SwipeScreenItemAdapter (private val itemListingDataset: List<ItemListing>
         holder.itemImage.setImageBitmap(itemListing.itemPhoto)
         holder.itemName.text = itemListing.itemName.toString()
         holder.itemPriceType.text = "Price Type: " + itemListing.pricingType.toString()
-        holder.itemPrice.text =  "Price: RM" + itemListing.price.toString()
+        holder.itemPrice.text =  "Price: RM" + String.format("%.2f", itemListing.price)
         holder.itemInfoImage.setImageResource(R.drawable.baseline_info_24)
         holder.itemLoveImage.setImageResource(R.drawable.greenheart)// Toast "You show love when this image is clicked"
         // Add a click listener to itemLoveImage
@@ -62,7 +62,7 @@ class SwipeScreenItemAdapter (private val itemListingDataset: List<ItemListing>
             // Show a toast message when itemLoveImage is clicked
             Toast.makeText(
                 holder.itemView.context,
-                "You show love to ${holder.itemName.text.toString()}",
+                "You liked ${holder.itemName.text.toString()}",
                 Toast.LENGTH_SHORT
             ).show()
             // Update the ItemLikeList Table
@@ -73,7 +73,9 @@ class SwipeScreenItemAdapter (private val itemListingDataset: List<ItemListing>
             val currentDateTime = LocalDateTime.now()
             // Extract the date and time components
             val likedDate = currentDateTime.toLocalDate().toString()
-            val likedTime = currentDateTime.toLocalTime().toString()
+            val currentTime = LocalTime.now()
+            val formatter = DateTimeFormatter.ofPattern("HH:mm")
+            val likedTime = currentTime.format(formatter)
             var thisItemLikeList = ItemLikeList(thisUserId, thisItemId, thisOwnerId, likedDate, likedTime)
             // Use a coroutine scope to call the insert method
             GlobalScope.launch(Dispatchers.IO) {
