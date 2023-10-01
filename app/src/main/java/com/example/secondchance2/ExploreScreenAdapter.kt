@@ -39,7 +39,7 @@ class ExploreScreenAdapter (private val itemListingDataset: List<UserXItem>
         val itemListing = itemListingDataset[position]
         holder.itemImage.setImageBitmap(itemListing.ItemPhoto)
         holder.itemName.text = itemListing.ItemName.toString()
-        holder.itemPrice.text = "RM" + itemListing.Price.toString()
+        holder.itemPrice.text = "RM" + String.format("%.2f", itemListing.Price)
         holder.itemPricingType.text = itemListing.PricingType.toString()
         holder.userImage.setImageBitmap(itemListing.ProfilePhoto)
         holder.ratingStar.text = itemListing.StarRating.toString()

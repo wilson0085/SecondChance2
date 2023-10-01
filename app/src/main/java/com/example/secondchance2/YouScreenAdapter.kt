@@ -38,7 +38,7 @@ class YouScreenAdapter (private val itemListingDataset: List<ItemListing>
         val itemListing = itemListingDataset[position]
         holder.itemImage.setImageBitmap(itemListing.itemPhoto)
         holder.itemName.text = itemListing.itemName.toString()
-        holder.itemPrice.text = "RM" + itemListing.price.toString()
+        holder.itemPrice.text = "RM" + String.format("%.2f", itemListing.price)
         holder.itemPricingType.text = itemListing.pricingType.toString()
 
         // Add click listener to each item card/fragment

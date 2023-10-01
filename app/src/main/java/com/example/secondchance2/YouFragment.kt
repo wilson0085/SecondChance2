@@ -79,7 +79,7 @@ class YouFragment : Fragment() {
             var thisJoinedYear = currentYear - thisUser.joinedYear
             binding.joinYear.text = "Joined " + thisJoinedYear.toString() + " years ago"
             if (thisUser.emailVerification == "Y"){
-                binding.verifyText.text = "Already Verified"
+                binding.verifyText.text = "Verified"
             }else{
                 binding.verifyText.text = "Not Verified"
             }

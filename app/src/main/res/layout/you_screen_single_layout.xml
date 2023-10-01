@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:layout_margin="10dp"
-    android:background="@color/white"
+    android:background="@drawable/round_corner_layout"
+    android:elevation="10dp"
     android:clickable="true">
 
     <ImageView
@@ -17,13 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="12dp">
 
         <TextView
             android:id="@+id/item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:fontFamily="@font/roboto_bold"
             android:padding="8dp"
             android:textSize="16dp" />
 
@@ -32,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:fontFamily="@font/roboto_bold"
             android:padding="4dp"
             android:paddingStart="8dp"
             android:textSize="16dp"/>
@@ -41,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:fontFamily="@font/roboto_bold"
             android:padding="4dp"
             android:paddingStart="8dp"
             android:textSize="16dp"/>
